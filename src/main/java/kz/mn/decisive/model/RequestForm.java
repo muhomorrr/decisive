@@ -1,0 +1,25 @@
+package kz.mn.decisive.model;
+
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
+import javax.persistence.*;
+
+@Entity
+@Data
+@NoArgsConstructor
+@AllArgsConstructor
+@Table(name = "request_forms")
+public class RequestForm {
+    @Id
+    @SequenceGenerator(name="request_form_seq",
+            sequenceName="request_form_seq",
+            allocationSize=1)
+    @GeneratedValue(strategy = GenerationType.SEQUENCE,
+            generator="request_form_seq")
+    private Long id;
+    private Long gatewayId;
+    private Long requesterId;
+    private String content;
+}
