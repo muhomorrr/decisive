@@ -6,4 +6,6 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface RequesterRepository extends JpaRepository<Requester, Long> {
+    boolean existsByIin(String iin);
+    Requester findByIin(String iin);
 }

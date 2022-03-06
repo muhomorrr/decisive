@@ -1,0 +1,62 @@
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+           xmlns:tns="http://www.decisive.mn.kz"
+           targetNamespace="http://www.decisive.mn.kz"
+           elementFormDefault="qualified">
+
+    <xs:element name="IncomingRequest">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="messageInfo" type="tns:MessageInfo"/>
+                <xs:element name="messageData" type="tns:MessageData"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="IncomingResponse">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="info" type="tns:ResponseInfo"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:complexType name="MessageInfo">
+        <xs:sequence>
+            <xs:element name="sender" type="xs:string"/>
+            <xs:element name="receiver" type="xs:string"/>
+            <xs:element name="id" type="xs:long"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="MessageData">
+        <xs:sequence>
+            <xs:element name="requester" type="tns:RequesterWSDL"/>
+            <xs:element name="content" type="xs:string"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="ResponseInfo">
+        <xs:sequence>
+            <xs:element name="status">
+                <xs:simpleType>
+                    <xs:restriction base="xs:string">
+                        <xs:enumeration value="OK"/>
+                        <xs:enumeration value="ERROR"/>
+                    </xs:restriction>
+                </xs:simpleType>
+            </xs:element>
+            <xs:element name="requestId" type="xs:long" minOccurs="0"/>
+            <xs:element name="errorMessage" type="xs:string" minOccurs="0"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="RequesterWSDL">
+        <xs:sequence>
+            <xs:element name="iin" type="xs:string"/>
+            <xs:element name="firstname" type="xs:string"/>
+            <xs:element name="lastname" type="xs:string"/>
+            <xs:element name="patronymic" type="xs:string"/>
+        </xs:sequence>
+    </xs:complexType>
+
+</xs:schema>

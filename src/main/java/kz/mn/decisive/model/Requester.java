@@ -5,6 +5,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
+import java.util.List;
 
 @Entity
 @Data
@@ -19,8 +20,12 @@ public class Requester {
     @GeneratedValue(strategy = GenerationType.SEQUENCE,
             generator="requester_seq")
     private Long id;
+    @Column(unique = true)
     private String iin;
     private String firstName;
     private String lastName;
     private String patronymic;
+
+    @OneToMany(mappedBy = "requester")
+    private List<RequestForm> requestFormList;
 }

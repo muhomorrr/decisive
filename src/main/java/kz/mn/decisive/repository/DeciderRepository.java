@@ -9,4 +9,5 @@ import java.util.List;
 @Repository
 public interface DeciderRepository extends JpaRepository<Decider, Long> {
     Decider findByUsername(String username);
+
 }

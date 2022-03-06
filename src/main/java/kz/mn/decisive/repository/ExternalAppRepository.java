@@ -6,4 +6,6 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface ExternalAppRepository extends JpaRepository<ExternalApp, Long> {
+    boolean existsByName(String name);
+    ExternalApp getByName(String name);
 }

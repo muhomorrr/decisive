@@ -20,6 +20,8 @@ public class RequestForm {
             generator="request_form_seq")
     private Long id;
     private Long gatewayId;
-    private Long requesterId;
+    @ManyToOne
+    @JoinColumn(name = "requester_id")
+    private Requester requester;
     private String content;
 }
