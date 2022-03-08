@@ -24,5 +24,10 @@ public class RequestFormService {
     @Transactional
     public void changeStatus(long id, RequestStatus status) {
         requestFormRepository.changeStatusById(id, status.name());
+
+    }
+
+    public RequestForm getRequestById(long id){
+        return requestFormRepository.findById(id);
     }
 }

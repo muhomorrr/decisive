@@ -25,7 +25,7 @@ import javax.xml.bind.annotation.XmlType;
  *   &lt;complexContent&gt;
  *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType"&gt;
  *       &lt;sequence&gt;
- *         &lt;element name="info" type="{http://www.decisive.mn.kz}ResponseInfo"/&gt;
+ *         &lt;element name="ok" type="{http://www.w3.org/2001/XMLSchema}string"/&gt;
  *       &lt;/sequence&gt;
  *     &lt;/restriction&gt;
  *   &lt;/complexContent&gt;
@@ -36,36 +36,36 @@ import javax.xml.bind.annotation.XmlType;
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "", propOrder = {
-    "info"
+    "ok"
 })
-@XmlRootElement(name = "IncomingResponse")
-public class IncomingResponse {
+@XmlRootElement(name = "ChangeStatusResponse")
+public class ChangeStatusResponse {
 
     @XmlElement(required = true)
-    protected ResponseInfo info;
+    protected String ok;
 
     /**
-     * Gets the value of the info property.
+     * Gets the value of the ok property.
      * 
      * @return
      *     possible object is
-     *     {@link ResponseInfo }
+     *     {@link String }
      *     
      */
-    public ResponseInfo getInfo() {
-        return info;
+    public String getOk() {
+        return ok;
     }
 
     /**
-     * Sets the value of the info property.
+     * Sets the value of the ok property.
      * 
      * @param value
      *     allowed object is
-     *     {@link ResponseInfo }
+     *     {@link String }
      *     
      */
-    public void setInfo(ResponseInfo value) {
-        this.info = value;
+    public void setOk(String value) {
+        this.ok = value;
     }
 
 }

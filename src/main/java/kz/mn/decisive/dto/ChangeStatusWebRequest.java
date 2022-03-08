@@ -6,7 +6,7 @@ import lombok.Data;
 
 @Data
 @AllArgsConstructor
-public class ChangeStatusRequest {
+public class ChangeStatusWebRequest {
     private long id;
     private RequestStatus requestStatus;
 }

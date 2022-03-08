@@ -18,4 +18,6 @@ public interface RequestFormRepository extends JpaRepository<RequestForm, Long> 
     @Modifying
     @Query(value = "update request_forms set status = ?2 WHERE id = ?1", nativeQuery = true)
     void changeStatusById(long id, String status);
+
+    RequestForm findById(long id);
 }

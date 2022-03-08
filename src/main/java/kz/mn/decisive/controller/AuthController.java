@@ -29,8 +29,10 @@ public class AuthController {
 
     @PostMapping("/auth")
     public AuthResponse auth(@RequestBody AuthRequest request) {
+        System.out.println("1");
         Decider decider = deciderService.findByUsernameAndPassword(request.getUsername(), request.getPassword());
         String token = jwtProvider.generateToken(decider.getUsername());
+        System.out.println(token);
         return new AuthResponse(token);
     }
 }
