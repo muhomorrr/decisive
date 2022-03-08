@@ -1,5 +1,6 @@
 package kz.mn.decisive.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -19,6 +20,7 @@ public class Requester {
             allocationSize=1)
     @GeneratedValue(strategy = GenerationType.SEQUENCE,
             generator="requester_seq")
+    @JsonIgnore
     private Long id;
     @Column(unique = true)
     private String iin;
@@ -27,5 +29,6 @@ public class Requester {
     private String patronymic;
 
     @OneToMany(mappedBy = "requester")
+    @JsonIgnore
     private List<RequestForm> requestFormList;
 }

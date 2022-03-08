@@ -3,6 +3,8 @@ package kz.mn.decisive.model;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.hibernate.annotations.Type;
+
 
 import javax.persistence.*;
 
@@ -24,4 +26,6 @@ public class RequestForm {
     @JoinColumn(name = "requester_id")
     private Requester requester;
     private String content;
+    @Enumerated(EnumType.STRING)
+    private RequestStatus status;
 }

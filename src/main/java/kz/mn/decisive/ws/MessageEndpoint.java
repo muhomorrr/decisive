@@ -1,6 +1,7 @@
 package kz.mn.decisive.ws;
 
 import kz.mn.decisive.model.RequestForm;
+import kz.mn.decisive.model.RequestStatus;
 import kz.mn.decisive.model.Requester;
 import kz.mn.decisive.service.RequestCheckerService;
 import kz.mn.decisive.ws.model.*;
@@ -38,6 +39,7 @@ public class MessageEndpoint {
                 requestForm.setRequester(requester);
                 requestForm.setGatewayId(request.getMessageInfo().getId());
                 requestForm.setContent(messageData.getContent());
+                requestForm.setStatus(RequestStatus.SUBMIT);
                 requestCheckerService.saveForm(requestForm);
                 responseInfo.setStatus("OK");
                 responseInfo.setRequestId(request.getMessageInfo().getId());
