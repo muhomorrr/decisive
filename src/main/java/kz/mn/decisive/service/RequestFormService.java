@@ -22,12 +22,19 @@ public class RequestFormService {
     }
 
     @Transactional
-    public void changeStatus(long id, RequestStatus status) {
-        requestFormRepository.changeStatusById(id, status.name());
-
+    public void changeStatus(long id, RequestStatus status) throws Exception {
+        if(status != RequestStatus.SUBMIT) {
+            requestFormRepository.changeStatusById(id, status.name());
+        } else {
+            throw new Exception("The status already changed");
+        }
     }
 
     public RequestForm getRequestById(long id){
         return requestFormRepository.findById(id);
+    }
+
+    public RequestForm getSubmittedRequestById(long id) {
+        return requestFormRepository.findSubmittedById(id);
     }
 }

@@ -20,4 +20,7 @@ public interface RequestFormRepository extends JpaRepository<RequestForm, Long> 
     void changeStatusById(long id, String status);
 
     RequestForm findById(long id);
+
+    @Query(value = "select * from request_forms where status = 'SUBMIT' and id = ?1", nativeQuery = true)
+    RequestForm findSubmittedById(long id);
 }

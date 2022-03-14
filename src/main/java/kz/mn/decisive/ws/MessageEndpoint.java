@@ -38,6 +38,7 @@ public class MessageEndpoint {
                 RequestForm requestForm = new RequestForm();
                 requestForm.setRequester(requester);
                 requestForm.setGatewayId(request.getMessageInfo().getId());
+                requestForm.setOriginApp(request.getMessageInfo().getSender());
                 requestForm.setContent(messageData.getContent());
                 requestForm.setStatus(RequestStatus.SUBMIT);
                 requestCheckerService.saveForm(requestForm);

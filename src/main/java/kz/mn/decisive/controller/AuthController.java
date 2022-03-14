@@ -7,6 +7,7 @@ import kz.mn.decisive.dto.RegistrationRequest;
 import kz.mn.decisive.model.Decider;
 import kz.mn.decisive.service.DeciderService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;

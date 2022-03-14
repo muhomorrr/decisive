@@ -25,6 +25,7 @@ public class RequestForm {
     @ManyToOne
     @JoinColumn(name = "requester_id")
     private Requester requester;
+    private String originApp;
     private String content;
     @Enumerated(EnumType.STRING)
     private RequestStatus status;
